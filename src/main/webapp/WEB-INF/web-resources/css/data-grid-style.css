@@ -1,0 +1,41 @@
+/*
+Data grid style v1.0
+author sumeeth kumar kanojia
+Date : 6-feb-2016
+
+*/
+
+.data-grid
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: 45px;
+	min-width: 480px;
+	textlign: left;
+	border-collapse: collapse;
+}
+.data-grid th
+{
+	font-size: 13px;
+	font-weight: normal;
+	padding: 8px;
+	background: #b9c9fe;
+	border-top: 4px solid #aabcfe;
+	border-bottom: 1px solid #fff;
+	color: #039;
+}
+.data-grid td
+{
+	padding: 8px;
+	background: #e8edff; 
+	border-bottom: 1px solid #fff;
+	color: #669;
+	border-top: 1px solid transparent;
+}
+.data-grid tr:hover td
+{
+	background: #d0dafd;
+	color: #339;
+}
+
+
