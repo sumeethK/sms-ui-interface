@@ -116,22 +116,26 @@ function getMusicByLimit(aoffset) {
 		}
 	});
 }
-function getMoviesByLimit(aoffset) {
+function getMoviesByLimit(offset, display) {
+//alert("Ajax request-> offset"+offset+"limit"+display);
 
 	$.ajax({
 		url : 'getMoviesByLimit_ajax.index',
 		type : "GET",
 		data : {
-			offset : aoffset
+			limit: display,
+			offset: offset
 		},
 		success : function(responseText) {
 			console.log('responseText' + responseText);
 			var html = '';
-			var obj = JSON.parse(responseText);
-			$.notify(obj.length + " rows fetched", "info");
-			for (var key = 0, size = obj.length; key < size; key++) {
+			var jsonObj = JSON.parse(responseText);
+			var fileObj = jsonObj.moviesList;
+			console.log(fileObj)
+			$.notify(fileObj.length + " rows fetched", "info");
+			for (var key = 0, size = fileObj.length; key < size; key++) {
 
-				html += populateMusicData(obj[key]);
+				html += populateMusicData(fileObj[key]);
 			}
 			$('tbody').empty();
 			$('tbody').append(html);

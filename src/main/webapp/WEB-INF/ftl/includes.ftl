@@ -1,6 +1,6 @@
 <#assign project_name="SoftwareManagementSystem">
 <!-- Make Sure your port no is correct -->
-<#assign base_url="http://localhost:8100/"project_name>
+<#assign base_url="http://localhost:8100/"+project_name>
 <link type="text/css" rel="stylesheet" href="${base_url}/web-resources/css/reset.css"/>
 <link type="text/css" rel="stylesheet" href="${base_url}/web-resources/css/data-grid-minimal-style.css" />
 <link type="text/css" rel="stylesheet" href="${base_url}/web-resources/css/form-data-style.css" />

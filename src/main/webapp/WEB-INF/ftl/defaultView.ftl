@@ -1,15 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<#include "/includes.ftl">
+<#include "includes.ftl">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>${page_title}</title>
 
 </head>
 <body>
-	
-	
-	<#include "/template/navbar.ftl">
+
+
+<#include "template/navbar.ftl">
 	
 	
 	<table border="1" class="data-grid">
@@ -35,7 +35,10 @@
 	</#list>
 	</tbody>
 	<tfoot>
-	<tr><td id="paginate">paginate</td></tr>
+    <tr>
+        <td id="paginate">paginate</td>
+        <td><input id="total_display" type="text" value="10"></td>
+    </tr>
 	<#else>
 	<tr>
 	<td>sorry no data........</td>
@@ -56,7 +59,7 @@
         $("#paginate").paginate({
 				count 		: ${rows_count?c},
 				start 		: ${rows_start},
-				display     : ${rows_display},
+            display: 10,
 				border					: false,
 				text_color  			: '#888',
 				background_color    	: '#EEE',	
@@ -64,10 +67,12 @@
 				background_hover_color	: '#CFCFCF',
 				onChange     			: function(page){
 											<#if fileType?has_content>
+                                                var limit = $('#total_display').val();
 												<#if fileType=="music">
 												 getMusicByLimit(page);
 												<#elseif fileType=="movies">
-												 getMoviesByLimit(page);
+
+                                                    getMoviesByLimit(page, limit);
 												 </#if>
 											<#else>
 											alert("No file type");
